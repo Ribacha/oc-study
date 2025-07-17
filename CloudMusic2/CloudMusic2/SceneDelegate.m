@@ -29,7 +29,7 @@
     UINavigationController* nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];
     UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:vc3];
     tabBarcontroller.viewControllers = @[nav1, nav2, nav3];
-    tabBarcontroller.tabBar.backgroundColor = [UIColor whiteColor];
+    tabBarcontroller.tabBar.backgroundColor = [UIColor clearColor];
     self.window.rootViewController = tabBarcontroller;
     tabBarcontroller.tabBar.tintColor = [UIColor systemRedColor];//统一颜色的代码
     tabBarcontroller.tabBar.unselectedItemTintColor = [UIColor grayColor];

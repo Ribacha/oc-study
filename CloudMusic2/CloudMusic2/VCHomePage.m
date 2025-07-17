@@ -108,9 +108,9 @@
         } else if (indexPath.row == 3) {
             return 30;
         } else if (indexPath.row == 4) {
-            return 120;
-        } else if (indexPath.row == 5) {
             return 200;
+        } else if (indexPath.row == 5) {
+            return 300;
         }
     }
     return 44;
