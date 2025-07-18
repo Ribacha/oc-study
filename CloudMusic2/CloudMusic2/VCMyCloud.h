@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyContentModel.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface VCMyCloud : UIViewController
 @property (nonatomic, assign) BOOL isDarkMode;

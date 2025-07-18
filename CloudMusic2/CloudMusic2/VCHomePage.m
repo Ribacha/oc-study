@@ -11,6 +11,7 @@
 #import "MyForthCell.h"
 #import "MyFifthCell.h"
 #import "MySixthCell.h"
+#import "MySeventhCell.h"
 @interface VCHomePage ()<UITableViewDelegate, UITableViewDataSource> {
     UITableView* tableview2;
 }
@@ -27,6 +28,7 @@
     [self.tableView registerClass:[MyForthCell class] forCellReuseIdentifier:@"MyForthCell"];
     [self.tableView registerClass:[MyFifthCell class] forCellReuseIdentifier:@"MyFifthCell"];
     [self.tableView registerClass:[MySixthCell class] forCellReuseIdentifier:@"MySixthCell"];
+    [self.tableView registerClass:[MySeventhCell class] forCellReuseIdentifier:@"MySeventhCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -54,14 +56,14 @@
     mic.frame = CGRectMake(CGRectGetMaxX(searchField.frame) + 10, yPosition, 30, 30);
     mic.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:mic];
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1; // 只有一个section
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;  // 只有1个 cell 展示轮播图
+    return 6;  // 只有1个 cell 展示轮播图
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
@@ -95,6 +97,37 @@
         cell.imageNames = @[@"rool0", @"rool1", @"rool2", @"rool3"];
         return cell;
     }
+    if (indexPath.section == 0 && indexPath.row == 5) {
+        MyThirdCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MySeventhCell" forIndexPath:indexPath];
+        cell.songsData = @[
+            @{
+                @"cover": @"hom1",
+                @"song": @"从前以后PT.1",
+                @"artist": @"盛宇D-SHINE/KEY.L刘聪 - 叁壹",
+                @"badges": @[@"超清母带"]
+            },
+            @{
+                @"cover": @"hom2",
+                @"song": @"勘ぐれい（灰心感）",
+                @"artist": @"ずっと真夜中でいいのに。- 勘ぐ...",
+                @"badges": @[@"VIP", @"超清母带"]
+            },
+            @{
+                @"cover": @"hom3",
+                @"song": @"50 Feet",
+                @"artist": @"SoMo - 50 Feet",
+                @"badges": @[@"VIP", @"超清母带"],
+                @"special": @"E"
+            },
+            @{
+                @"cover": @"home8",
+                @"song": @"挂羊头卖狗肉",
+                @"artist": @"王以太 - 演.说.家",
+                @"badges": @[@"超清母带"]
+            }
+        ];
+        return cell;
+    }
     return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,6 +144,8 @@
             return 200;
         } else if (indexPath.row == 5) {
             return 300;
+        } else if (indexPath.row == 6) {
+            return 280;
         }
     }
     return 44;

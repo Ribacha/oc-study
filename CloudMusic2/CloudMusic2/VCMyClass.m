@@ -38,6 +38,7 @@
     [self.view addSubview:self.tableView];
 //    self.tableView.backgroundView = bgView;
     
+    self.profileModel = [ProfileModel sharedInstance];
     self.profileModel = [[ProfileModel alloc] init];
     self.profileModel.avatarName = @"avatar";
     self.profileModel.username = @"字架";
@@ -46,7 +47,7 @@
     self.profileModel.badgeDesc = @"♂ | 日常摸鱼中 | 黑胶收藏者";
     self.profileModel.stats = @[@"180\n关注", @"7\n粉丝", @"Lv.9\n等级", @"1830\n时长"];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"云朵-copy"]
-                                                                       style:UIBarButtonItemStylePlain
+                                                                       style:UIBarButtonItemStyleDone
                                                                       target:self
                                                                       action:@selector(NextVC)];
         self.navigationItem.leftBarButtonItem = leftButton;
@@ -107,7 +108,7 @@
     } else if (indexPath.row == 1) {
         return 80;
     } else if (indexPath.row == 2) {
-        return 60;
+        return 70;
     } else if (indexPath.row == 3) {
         return 350;
     } else {
@@ -122,6 +123,10 @@
         NSLog(@"选中了 %@", selectedAvatarName);
         self.profileModel.avatarName = selectedAvatarName;
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+
+        // 发通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AvatarDidChangeNotification"
+                                                            object:self.profileModel];
     };
     [self.navigationController pushViewController:photoWallVC animated:YES];
 }

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MyAvatarCellDelegate <NSObject>
 - (void) avatarCellDidTapAvatar: (MyAvatarCell* ) cell;
 @end
-
 @interface MyAvatarCell : UITableViewCell
 @property (nonatomic, weak) id<MyAvatarCellDelegate> delegate;
 @property (nonatomic, strong) UIImageView *avatarImageView;

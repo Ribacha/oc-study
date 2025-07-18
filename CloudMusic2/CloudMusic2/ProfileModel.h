@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *badgeDesc;
 @property (nonatomic, strong) NSArray<NSString *> *stats; 
 @property (nonatomic, strong) NSArray<NSString *> *avatarList;
++ (instancetype)sharedInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

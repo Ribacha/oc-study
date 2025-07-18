@@ -21,9 +21,9 @@
     VCHomePage* vc1 = [[VCHomePage alloc] init];
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"推荐" image:[UIImage imageNamed:@"推荐.PNG"] selectedImage:[UIImage imageNamed:@"推荐.PNG"]];
     VCClassification* vc2 = [[VCClassification alloc] init];
-    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"漫游" image:[UIImage imageNamed:@"漫游.PNG"] selectedImage:[UIImage imageNamed:@"漫游.PNG"]];
+    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"漫游.PNG"] selectedImage:[UIImage imageNamed:@"漫游.PNG"]];
     VCMyClass* vc3 = [[VCMyClass alloc] init];
-    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"我的.PNG"] selectedImage:[UIImage imageNamed:@"我的.PNG"]];
+    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"账号" image:[UIImage imageNamed:@"我的.PNG"] selectedImage:[UIImage imageNamed:@"我的.PNG"]];
     UITabBarController* tabBarcontroller = [[UITabBarController alloc] init];
     UINavigationController* nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
     UINavigationController* nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];

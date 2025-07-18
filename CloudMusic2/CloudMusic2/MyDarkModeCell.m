@@ -21,7 +21,7 @@
 }
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 23, 20, 20)];
+        UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 23, 25, 25)];
         iconView.image = [UIImage imageNamed:@"月亮"];
         iconView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:iconView];

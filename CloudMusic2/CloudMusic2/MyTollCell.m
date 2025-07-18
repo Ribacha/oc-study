@@ -57,10 +57,10 @@
     CGFloat width = self.contentView.bounds.size.width;
     CGFloat height = 80; // 拉高以容纳 label
     NSArray* imageNames = @[@"创作",@"歌词",@"衣服,服装",@"星星",@"麦克风2",@"云朵-copy"];
-    NSArray* labels = @[@"创作", @"歌词", @"服装", @"星星", @"麦克风", @"云朵"];
+    NSArray* labels = @[@"创作", @"歌词", @"服装", @"收藏", @"MIC", @"云盘"];
     
-    CGFloat imageWidth = 50;
-    CGFloat imageHeight = 50;
+    CGFloat imageWidth = 35;
+    CGFloat imageHeight = 35;
     CGFloat margin = 30;
     CGFloat labelHeight = 20;
     

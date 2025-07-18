@@ -47,8 +47,24 @@
         artistLabel.textColor = [UIColor grayColor];
         [itemView addSubview:artistLabel];
         
+        UIButton* playButton = [[UIButton alloc] initWithFrame:CGRectMake(self.contentView.bounds.size.width - 40, (itemHeight - 30) / 2, 30, 30)];
+        [playButton setImage:[UIImage systemImageNamed:@"play.fill"] forState:UIControlStateNormal];
+        playButton.tag = i;
+        [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [itemView addSubview:playButton];
+        
         [self.contentView addSubview:itemView];
     }
 }
-
+- (void) playButtonTapped: (UIButton*) sender {
+    NSInteger index = sender.tag;
+    NSDictionary* song = self.songsData[index];
+    
+    UIImage* currentImage = sender.imageView.image;
+    if ([currentImage isEqual:[UIImage systemImageNamed:@"play.fill"]]) {
+        [sender setImage:[UIImage systemImageNamed:@"pause.fill"] forState:UIControlStateNormal];
+    } else {
+        [sender setImage:[UIImage systemImageNamed:@"play.fill"] forState:UIControlStateNormal];
+    }
+}
 @end

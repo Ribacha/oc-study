@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AAC5050346763AE09712EE6C /* libPods-CloudMusic2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C75316304A7601C10ED5A0 /* libPods-CloudMusic2.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4BB4B9B12E262B3100462E4E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,9 @@
 		4BB4B9952E262B2E00462E4E /* CloudMusic2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudMusic2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB4B9B02E262B3100462E4E /* CloudMusic2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudMusic2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB4B9BA2E262B3100462E4E /* CloudMusic2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudMusic2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BCAF90A56F00A70B8E1114 /* Pods-CloudMusic2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudMusic2.release.xcconfig"; path = "Target Support Files/Pods-CloudMusic2/Pods-CloudMusic2.release.xcconfig"; sourceTree = "<group>"; };
+		914D88618DB3C52CD911F1FB /* Pods-CloudMusic2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudMusic2.debug.xcconfig"; path = "Target Support Files/Pods-CloudMusic2/Pods-CloudMusic2.debug.xcconfig"; sourceTree = "<group>"; };
+		D0C75316304A7601C10ED5A0 /* libPods-CloudMusic2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudMusic2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC5050346763AE09712EE6C /* libPods-CloudMusic2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44BADA14953ACE8D78DEEC24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				914D88618DB3C52CD911F1FB /* Pods-CloudMusic2.debug.xcconfig */,
+				88BCAF90A56F00A70B8E1114 /* Pods-CloudMusic2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4BB4B98C2E262B2E00462E4E = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +109,8 @@
 				4BB4B9B32E262B3100462E4E /* CloudMusic2Tests */,
 				4BB4B9BD2E262B3100462E4E /* CloudMusic2UITests */,
 				4BB4B9962E262B2E00462E4E /* Products */,
+				44BADA14953ACE8D78DEEC24 /* Pods */,
+				A018C839FBA543E4CC28807F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +124,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A018C839FBA543E4CC28807F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0C75316304A7601C10ED5A0 /* libPods-CloudMusic2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BB4B9C32E262B3100462E4E /* Build configuration list for PBXNativeTarget "CloudMusic2" */;
 			buildPhases = (
+				E0B3C5077CBDED4F299D9558 /* [CP] Check Pods Manifest.lock */,
 				4BB4B9912E262B2E00462E4E /* Sources */,
 				4BB4B9922E262B2E00462E4E /* Frameworks */,
 				4BB4B9932E262B2E00462E4E /* Resources */,
@@ -124,8 +152,6 @@
 				4BB4B9972E262B2E00462E4E /* CloudMusic2 */,
 			);
 			name = CloudMusic2;
-			packageProductDependencies = (
-			);
 			productName = CloudMusic2;
 			productReference = 4BB4B9952E262B2E00462E4E /* CloudMusic2.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +173,6 @@
 				4BB4B9B32E262B3100462E4E /* CloudMusic2Tests */,
 			);
 			name = CloudMusic2Tests;
-			packageProductDependencies = (
-			);
 			productName = CloudMusic2Tests;
 			productReference = 4BB4B9B02E262B3100462E4E /* CloudMusic2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,8 +194,6 @@
 				4BB4B9BD2E262B3100462E4E /* CloudMusic2UITests */,
 			);
 			name = CloudMusic2UITests;
-			packageProductDependencies = (
-			);
 			productName = CloudMusic2UITests;
 			productReference = 4BB4B9BA2E262B3100462E4E /* CloudMusic2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -243,6 +265,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E0B3C5077CBDED4F299D9558 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudMusic2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BB4B9912E262B2E00462E4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +330,7 @@
 /* Begin XCBuildConfiguration section */
 		4BB4B9C42E262B3100462E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 914D88618DB3C52CD911F1FB /* Pods-CloudMusic2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +357,7 @@
 		};
 		4BB4B9C52E262B3100462E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BCAF90A56F00A70B8E1114 /* Pods-CloudMusic2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

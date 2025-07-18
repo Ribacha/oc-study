@@ -47,10 +47,23 @@
     NSInteger index = gesture.view.tag;
     NSArray* avatarNames = @[@"avatar1", @"avatar2", @"avatar3", @"avatar4", @"avatar5", @"avatar6", @"avatar7", @"avatar8"];
     NSString* selectedAvatar = avatarNames[index];
-    if (self.avatarSelectedHandler) {
-        self.avatarSelectedHandler(selectedAvatar);
-    }
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"更换头像" message:[NSString stringWithFormat:@"确定是否更换头像 %@ 吗", selectedAvatar] preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* confirmaction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.avatarSelectedHandler) {
+            self.avatarSelectedHandler(selectedAvatar);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        
+        [alert addAction:confirmaction];
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
 }
 
 
