@@ -67,11 +67,11 @@
         _bioLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_bioLabel];
         // 统计数据视图
-        _statsView = [[UIView alloc] initWithFrame:CGRectMake(80, 130, self.contentView.bounds.size.width - 60, 50)];
+        _statsView = [[UIView alloc] initWithFrame:CGRectMake(70, 130, self.contentView.bounds.size.width - 60, 50)];
         [self.contentView addSubview:_statsView];
         
         // 徽章视图
-        _badgeView = [[UIView alloc] initWithFrame:CGRectMake(100, 190, 250, 30)];
+        _badgeView = [[UIView alloc] initWithFrame:CGRectMake(80, 190, 250, 30)];
         _badgeView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.15];
         _badgeView.layer.cornerRadius = 10;
         [self.contentView addSubview:_badgeView];

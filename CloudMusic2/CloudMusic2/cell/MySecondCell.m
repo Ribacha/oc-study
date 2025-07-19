@@ -35,8 +35,8 @@
 }
 - (void) layoutSubviews {
     [super layoutSubviews];
-    self.scrollView.frame = CGRectMake(0, 0, self.contentView.bounds.size.width, 180);
-    self.pageControl.frame = CGRectMake(0, 150, self.contentView.bounds.size.width, 20);
+    self.scrollView.frame = CGRectMake(0, 0, self.contentView.bounds.size.width, 200);
+//    self.pageControl.frame = CGRectMake(0, 170, self.contentView.bounds.size.width, 0);
 }
 - (void)setupScrollViewWithImages {
     CGFloat width = self.contentView.bounds.size.width;
@@ -46,7 +46,7 @@
     NSArray* labels = @[@"精选推荐", @"每日歌曲", @"私人FM", @"歌单推荐"];  // 对应的文字
     
     CGFloat imageWidth = 120;
-    CGFloat imageHeight = 135;
+    CGFloat imageHeight = 150;
     CGFloat margin = 20;
     CGFloat labelHeight = 20;
     

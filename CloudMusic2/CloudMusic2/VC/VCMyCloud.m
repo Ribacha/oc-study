@@ -61,7 +61,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyCloudCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MyCloudCell" forIndexPath:indexPath];
-    cell.iconImageView.image = [UIImage imageNamed:@"sample_icon"];
     MyContentModel* model = self.dataSource[indexPath.row];
     [cell configureWithModel:model];
     
@@ -97,7 +96,6 @@
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < 10; i++) {
         MyContentModel *model = [[MyContentModel alloc] init];
-        model.iconName = @"sample_icon";
         model.title = [NSString stringWithFormat:@"歌曲 %d", i + 1];
         model.subtitle = @"歌手名 - 专辑名";
         model.extraInfo = @"超清母带";

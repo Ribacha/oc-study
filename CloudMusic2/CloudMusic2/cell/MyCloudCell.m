@@ -22,7 +22,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.backgroundColor = [UIColor clearColor];
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 10, 200, 20)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 10, 200, 20)];
         _titleLabel.font = [UIFont boldSystemFontOfSize:16];
         [self.contentView addSubview:_titleLabel];
         
@@ -35,7 +35,6 @@
 }
 
 - (void)configureWithModel:(MyContentModel *)model {
-    self.iconImageView.image = [UIImage imageNamed:model.iconName];
     self.titleLabel.text = model.title;
     self.subtitleLabel.text = model.subtitle;
     

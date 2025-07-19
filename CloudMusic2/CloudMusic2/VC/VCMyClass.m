@@ -39,7 +39,7 @@
 //    self.tableView.backgroundView = bgView;
     
     self.profileModel = [ProfileModel sharedInstance];
-    self.profileModel = [[ProfileModel alloc] init];
+    
     self.profileModel.avatarName = @"avatar";
     self.profileModel.username = @"字架";
     self.profileModel.vipStatus = @"乙巳";

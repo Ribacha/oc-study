@@ -30,7 +30,6 @@
     [self.view addSubview:self.tableView];
     
     self.profileModel = [ProfileModel sharedInstance];
-    self.profileModel.avatarName = @"avatar";
     self.profileModel.username = @"字架";
     self.profileModel.vipStatus = @"乙巳";
     self.profileModel.bio = @"永不退缩";
@@ -54,6 +53,14 @@
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleAvatarChanged:)
+                                                 name:@"AvatarDidChangeNotification"
+                                               object:nil];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
@@ -111,7 +118,7 @@
     if (indexPath.row == 0) {
         return 250;
     } else if (indexPath.row == 1) {
-        return 180;
+        return 220;
     } else if (indexPath.row == 2) {
         return 280;
     } else if (indexPath.row == 3) {

@@ -6,27 +6,30 @@
 //
 
 #import "MyThirdCell.h"
-
 @implementation MyThirdCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // 初始化时不做事，等 setSongsData 赋值时动态生成 UI
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-- (void) setSongsData:(NSArray *)songsData {
+- (void)setSongsData:(NSArray *)songsData {
     _songsData = songsData;
+    
+    // 先清空旧视图，防止复用时重复添加
     [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     CGFloat itemHeight = 70;
     CGFloat padding = 10;
+    
     for (int i = 0; i < songsData.count; i++) {
         NSDictionary* song = songsData[i];
+        
         UIView* itemView = [[UIView alloc] initWithFrame:CGRectMake(0, i * itemHeight, self.contentView.bounds.size.width, itemHeight)];
+        
         UIImageView* coverImageView = [[UIImageView alloc] initWithFrame:CGRectMake(padding, padding, 50, 50)];
         coverImageView.image = [UIImage imageNamed:song[@"cover"]];
         coverImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -34,7 +37,7 @@
         [itemView addSubview:coverImageView];
         
         CGFloat labelX = CGRectGetMaxX(coverImageView.frame) + padding;
-        CGFloat labelWidth = self.contentView.bounds.size.width - labelX -padding;
+        CGFloat labelWidth = self.contentView.bounds.size.width - labelX - 40; // 为按钮预留
         
         UILabel* songLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, padding, labelWidth, 20)];
         songLabel.text = song[@"song"];
@@ -56,9 +59,11 @@
         [self.contentView addSubview:itemView];
     }
 }
-- (void) playButtonTapped: (UIButton*) sender {
+
+- (void)playButtonTapped:(UIButton*)sender {
     NSInteger index = sender.tag;
     NSDictionary* song = self.songsData[index];
+    NSLog(@"播放歌曲: %@", song[@"song"]);
     
     UIImage* currentImage = sender.imageView.image;
     if ([currentImage isEqual:[UIImage systemImageNamed:@"play.fill"]]) {
@@ -67,4 +72,5 @@
         [sender setImage:[UIImage systemImageNamed:@"play.fill"] forState:UIControlStateNormal];
     }
 }
+
 @end
