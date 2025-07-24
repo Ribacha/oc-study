@@ -89,6 +89,11 @@
             @{@"cover":@"商城", @"label":@"云有商城"},
             @{@"cover":@"时间", @"label":@"最近播放"},
             @{@"cover":@"发票", @"label":@"云村有票"},
+            @{@"cover":@"邮件", @"label":@"邮件"},
+            @{@"cover":@"贝壳", @"label":@"云贝"},
+            @{@"cover":@"商城", @"label":@"云有商城"},
+            @{@"cover":@"时间", @"label":@"最近播放"},
+            @{@"cover":@"发票", @"label":@"云村有票"},
             @{@"cover":@"邮件", @"label":@"邮件"}
         ];
         return cell;
@@ -110,7 +115,7 @@
     } else if (indexPath.row == 2) {
         return 70;
     } else if (indexPath.row == 3) {
-        return 350;
+        return 700;
     } else {
         return 44;
     }
