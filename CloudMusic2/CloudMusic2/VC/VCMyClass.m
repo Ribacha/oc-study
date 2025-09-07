@@ -53,6 +53,8 @@
         self.navigationItem.leftBarButtonItem = leftButton;
     BOOL isDark = [[NSUserDefaults standardUserDefaults] boolForKey:DarkModeKey];
     [self applyInterfaceStyle:isDark];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
@@ -127,6 +129,7 @@
     photoWallVC.avatarSelectedHandler = ^(NSString * selectedAvatarName) {
         NSLog(@"选中了 %@", selectedAvatarName);
         self.profileModel.avatarName = selectedAvatarName;
+        
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 
         // 发通知

@@ -39,7 +39,10 @@
         }];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     }
-
+    UIImage* backImage = [[UIImage imageNamed:@"chevron.backward"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[UINavigationBar appearance] setBackIndicatorImage:backImage];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backImage];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100, 0) forBarMetrics:UIBarMetricsDefault];
     return YES;
 }
 

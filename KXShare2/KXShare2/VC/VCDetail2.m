@@ -55,6 +55,16 @@
     }
     return 44;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES; // 隐藏底部 TabBar
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO; // 离开页面时恢复显示 TabBar
+}
+
 /*
 #pragma mark - Navigation
 

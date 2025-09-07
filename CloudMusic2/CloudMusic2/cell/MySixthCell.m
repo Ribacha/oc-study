@@ -86,7 +86,12 @@
 
 - (void)startTimer {
     [self.timer invalidate];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(autoScroll) userInfo:nil repeats:YES];
+    self.timer = [NSTimer timerWithTimeInterval:2.0
+                                         target:self
+                                       selector:@selector(autoScroll)
+                                       userInfo:nil
+                                        repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)autoScroll {

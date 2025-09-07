@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VCMyClass : UIViewController
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) ProfileModel *profileModel;
+@property (nonatomic, copy) NSString *currentAvatarName;
 @end
 
 NS_ASSUME_NONNULL_END

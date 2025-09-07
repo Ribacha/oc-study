@@ -57,7 +57,8 @@
     mic.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:mic];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1; // 只有一个section

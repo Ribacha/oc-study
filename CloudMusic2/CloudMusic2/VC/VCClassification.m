@@ -35,10 +35,13 @@
     self.profileModel.bio = @"永不退缩";
     self.profileModel.badgeDesc = @"♂ | 日常摸鱼中 | 黑胶收藏者";
     self.profileModel.stats = @[@"180\n关注", @"7\n粉丝", @"Lv.9\n等级", @"1830\n时长"];
+    self.profileModel.avatarName = @"avatar"; // 或者你存的默认头像图片名
     [[NSNotificationCenter defaultCenter] addObserver:self
                                                 selector:@selector(handleAvatarChanged:)
                                                     name:@"AvatarDidChangeNotification"
                                                   object:nil];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];//去黑线
 }
 - (void) handleAvatarChanged: (NSNotification*) notification {
     ProfileModel* updatedProfile = notification.object;

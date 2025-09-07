@@ -17,6 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImage *backImage = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:backImage forState:UIControlStateNormal];
+    backBtn.frame = CGRectMake(0, 0, 20, 20);
+    [backBtn addTarget:self action:@selector(customBackAction) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = backItem;
+    
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.backgroundColor = [UIColor whiteColor];
     
@@ -125,6 +135,18 @@
     } else {
         self.likeCountLabel.text = @"0";
     }
+}
+- (void)customBackAction {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES; // 隐藏底部 TabBar
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO; // 离开页面时恢复显示 TabBar
 }
 /*
 #pragma mark - Navigation

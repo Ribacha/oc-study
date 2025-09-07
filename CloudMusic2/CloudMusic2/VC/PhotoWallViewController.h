@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoWallViewController : UIViewController
 @property (nonatomic, copy) void(^avatarSelectedHandler)(NSString *selectedAvatarName);
+
 @end
 
 NS_ASSUME_NONNULL_END

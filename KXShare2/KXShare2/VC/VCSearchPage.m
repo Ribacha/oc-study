@@ -17,10 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.view.backgroundColor = [UIColor blackColor];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 402, 800)];
     self.scrollView.contentSize = CGSizeMake(394, 600);
     self.scrollView.scrollEnabled = NO;
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     UITextField* textField = [[UITextField alloc] initWithFrame:CGRectMake(5, 0, 395, 40)];
     textField.placeholder = @"搜索 用户名 作品分类 文章";
     textField.borderStyle = UITextBorderStyleRoundedRect;
