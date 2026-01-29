@@ -7,6 +7,7 @@
 
 #import "VCSearchPage.h"
 #import "VCWeatherDetail.h"
+#import <AFNetworking/AFNetworking.h>
 @interface VCSearchPage ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITextField* textField;
 @property (nonatomic, strong) UIButton* searchButton;
@@ -79,26 +80,42 @@
     NSString* apiKey = @"8950a91429864a60a7b105904252508";
     NSString* encodeQuery = [cityName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *urlStr = [NSString stringWithFormat:@"https://api.weatherapi.com/v1/forecast.json?key=%@&q=%@&lang=zh&days=7", apiKey, encodeQuery];
-    NSURL* url = [NSURL URLWithString:urlStr];
-    NSURLRequest* request = [NSURLRequest requestWithURL:url];
-    NSURLSession* session = [NSURLSession sharedSession];
-    NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error || !data) {
-            return;
-        }
-        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        if (![json isKindOfClass:[NSDictionary class]]) {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager GET:urlStr parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
             return;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            VCWeatherDetail *detailVC = [[VCWeatherDetail alloc] init];
-            [self.navigationController pushViewController:detailVC animated:YES];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"CityInfoNotification" object:nil userInfo:json];
-            });
-        });
+                    VCWeatherDetail *detailVC = [[VCWeatherDetail alloc] init];
+                    [self.navigationController pushViewController:detailVC animated:YES];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"CityInfoNotification" object:nil userInfo:responseObject];
+                    });
+                });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败%@", error);
     }];
-    [task resume];
+//    NSURL* url = [NSURL URLWithString:urlStr];
+//    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+//    NSURLSession* session = [NSURLSession sharedSession];
+//    NSURLSessionDataTask* task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (error || !data) {
+//            return;
+//        }
+//        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        if (![json isKindOfClass:[NSDictionary class]]) {
+//            return;
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            VCWeatherDetail *detailVC = [[VCWeatherDetail alloc] init];
+//            [self.navigationController pushViewController:detailVC animated:YES];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"CityInfoNotification" object:nil userInfo:json];
+//            });
+//        });
+//    }];
+//    [task resume];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

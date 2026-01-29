@@ -7,11 +7,9 @@
 
 #import "VCHomePage.h"
 #import "HomeFirstCell.h"
-#import "HomeSecondCell.h"
 #import "VCDetail.h"
-#import "HomeThirdCell.h"
-#import "HomeFourthCell.h"
-#import "HomeFifthCell.h"
+#import "HomeContentCell.h"
+#import "MyModel.h"
 @interface VCHomePage ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) NSMutableArray<MyModel *> *dataSource;
@@ -23,136 +21,76 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataSource = [NSMutableArray array];
+    for (int i = 0; i < 5; i++) {
+            MyModel *model = [[MyModel alloc] init];
+            model.isLiked = NO;
+            model.likeCount = i * 2; 
+            model.viewCount = 5 + i;
+            model.shareCount = 1 + i;
+            model.title = @"假日";
+            model.subtitle = @"原创-插画-练习习作";
+            model.author = @"share小白";
+            model.time = @"15分钟前";
+            model.imageName = [NSString stringWithFormat:@"list_img%d", i];
+            [self.dataSource addObject:model];
+        }
     MyModel *model = [[MyModel alloc] init];
     model.isLiked = NO;
     [self.dataSource addObject:model];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height) style:UITableViewStylePlain];
     [self.tableView registerClass:[HomeFirstCell class] forCellReuseIdentifier:@"HomeFirstCell"];
-    [self.tableView registerClass:[HomeSecondCell class] forCellReuseIdentifier:@"HomeSecondCell"];
-    [self.tableView registerClass:[HomeThirdCell class] forCellReuseIdentifier:@"HomeThirdCell"];
-    [self.tableView registerClass:[HomeFourthCell class] forCellReuseIdentifier:@"HomeFourthCell"];
-    [self.tableView registerClass:[HomeFifthCell class] forCellReuseIdentifier:@"HomeFifthCell"];
+    [self.tableView registerClass:[HomeContentCell class] forCellReuseIdentifier:@"HomeContentCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     UITabBarAppearance *appearance = [[UITabBarAppearance alloc] init];
-    [appearance configureWithTransparentBackground]; // 透明背景
+    [appearance configureWithTransparentBackground];
     self.tabBarController.tabBar.standardAppearance = appearance;
     if (@available(iOS 15.0, *)) {
         self.tabBarController.tabBar.scrollEdgeAppearance = appearance;
     }
-    self.dataSource = [NSMutableArray array];
-        for (int i = 0; i < 5; i++) {
-            MyModel *model = [[MyModel alloc] init];
-            model.isLiked = NO;
-            model.likeCount = 0;
-            [self.dataSource addObject:model];
-        }
     UIView* blackView = [[UIView alloc] initWithFrame:CGRectMake(0,self.view.frame.size.height - 34,self.view.frame.size.width,34)];
     blackView.backgroundColor = [UIColor blackColor];
     blackView.tag = 9999;
     [self.view addSubview:blackView];
     [self.view bringSubviewToFront:blackView];
-//    self.tabBarController.tabBar.translucent = NO;
-//    self.tabBarController.tabBar.backgroundColor = [UIColor blackColor];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (indexPath.row == 0) {
-        HomeFirstCell* cell = [tableView dequeueReusableCellWithIdentifier:@"HomeFirstCell" forIndexPath:indexPath];
+        HomeFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeFirstCell" forIndexPath:indexPath];
         cell.imageNames = @[@"main_img1", @"main_img2", @"main_img3", @"main_img4"];
         return cell;
-    } else if(indexPath.row == 1) {
-        HomeSecondCell* cell = [tableView dequeueReusableCellWithIdentifier:@"HomeSecondCell" forIndexPath:indexPath];
-        MyModel* model = self.dataSource[indexPath.row];
-        [cell configureWithModel:model];
-        __weak typeof(cell) weakCell = cell;
-        cell.likeButtonAction = ^{
-            if (model.isLiked) {
-                model.likeCount -= 1;
-            } else {
-                model.likeCount += 1;
-            }
-            model.isLiked = !model.isLiked;
-            __strong typeof(weakCell) strongCell = weakCell;
-            if (!strongCell) return;
-
-            strongCell.likeCountLabel1.text = [NSString stringWithFormat:@"%ld", (long)model.likeCount];
-            NSString *imageName = model.isLiked ? @"红心" : @"蓝心";
-            [strongCell.likeButton2 setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        };
-        return cell;
-    } else if (indexPath.row == 2){
-        HomeThirdCell* cell = [tableView dequeueReusableCellWithIdentifier:@"HomeThirdCell" forIndexPath:indexPath];
-        MyModel* model = self.dataSource[indexPath.row];
-        [cell configureWithModel:model];
-        __weak typeof(cell) weakCell = cell;
-        cell.likeButtonAction = ^{
-            if (model.isLiked) {
-                model.likeCount -= 1;
-            } else {
-                model.likeCount += 1;
-            }
-            model.isLiked = !model.isLiked;
-            __strong typeof(weakCell) strongCell = weakCell;
-            if (!strongCell) return;
-
-            strongCell.likeCountLabel1.text = [NSString stringWithFormat:@"%ld", (long)model.likeCount];
-            NSString *imageName = model.isLiked ? @"红心" : @"蓝心";
-            [strongCell.likeButton2 setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        };
-        return cell;
-    } else if (indexPath.row == 3) {
-        HomeFourthCell* cell = [tableView dequeueReusableCellWithIdentifier:@"HomeFourthCell" forIndexPath:indexPath];
-        MyModel* model = self.dataSource[indexPath.row];
-        [cell configureWithModel:model];
-        __weak typeof(cell) weakCell = cell;
-        cell.likeButtonAction = ^{
-            if (model.isLiked) {
-                model.likeCount -= 1;
-            } else {
-                model.likeCount += 1;
-            }
-            model.isLiked = !model.isLiked;
-            __strong typeof(weakCell) strongCell = weakCell;
-            if (!strongCell) return;
-
-            strongCell.likeCountLabel1.text = [NSString stringWithFormat:@"%ld", (long)model.likeCount];
-            NSString *imageName = model.isLiked ? @"红心" : @"蓝心";
-            [strongCell.likeButton2 setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        };
-        return cell;
-    } else if (indexPath.row == 4) {
-        HomeFifthCell* cell = [tableView dequeueReusableCellWithIdentifier:@"HomeFifthCell" forIndexPath:indexPath];
-        MyModel* model = self.dataSource[indexPath.row];
-        [cell configureWithModel:model];
-        __weak typeof(cell) weakCell = cell;
-        cell.likeButtonAction = ^{
-            if (model.isLiked) {
-                model.likeCount -= 1;
-            } else {
-                model.likeCount += 1;
-            }
-            model.isLiked = !model.isLiked;
-            __strong typeof(weakCell) strongCell = weakCell;
-            if (!strongCell) return;
-
-            strongCell.likeCountLabel1.text = [NSString stringWithFormat:@"%ld", (long)model.likeCount];
-            NSString *imageName = model.isLiked ? @"红心" : @"蓝心";
-            [strongCell.likeButton2 setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        };
-        return cell;
     } else {
-        return nil;
+        HomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeContentCell" forIndexPath:indexPath];
+        MyModel *model = self.dataSource[indexPath.row];
+        [cell configureWithModel:model];
+
+        __weak typeof(cell) weakCell = cell;
+        cell.likeButtonAction = ^{
+            if (model.isLiked) {
+                model.likeCount -= 1;
+            } else {
+                model.likeCount += 1;
+            }
+            model.isLiked = !model.isLiked;
+
+            __strong typeof(weakCell) strongCell = weakCell;
+            if (!strongCell) return;
+
+            [strongCell configureWithModel:model];
+        };
+        return cell;
     }
- }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
@@ -171,7 +109,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
-        MyModel *model = self.dataSource[0];
+        MyModel *model = self.dataSource[indexPath.row];
         VCDetail *detailVC = [[VCDetail alloc] initWithModel:model];
         detailVC.likeStatusChanged = ^{
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];

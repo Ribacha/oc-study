@@ -4,4 +4,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Weather Forecast Demo' do 
   pod 'LookinServer', :configurations => ['Debug']
+  pod 'AFNetworking'
+  pod 'YYModel'
 end

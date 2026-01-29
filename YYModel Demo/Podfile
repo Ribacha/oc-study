@@ -1,0 +1,9 @@
+platform :ios, '12.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'YYModel Demo' do 
+  pod 'LookinServer', :configurations => ['Debug']
+  pod 'AFNetworking'
+  pod 'YYModel'
+end
