@@ -72,7 +72,7 @@ static MusicPlayerManager *_instance = nil;
 }
 
 - (void) playPrevious {
-  if (self.playlist == 0) {
+  if (self.playlist.count == 0) {
     return;
   }
   self.currentindex--;

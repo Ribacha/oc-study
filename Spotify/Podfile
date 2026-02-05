@@ -8,4 +8,5 @@ target 'Spotify' do
   pod 'YYModel'
   pod 'Masonry'
   pod 'SDWebImage'
+  pod 'WCDB.objc'
 end

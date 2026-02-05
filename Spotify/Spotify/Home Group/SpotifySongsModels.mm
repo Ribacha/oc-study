@@ -14,13 +14,16 @@
     return @{
         @"track" : @"name",
         @"songID" : @"id",
-        @"picURl" : @"al.picUrl",
+        @"picURl" : @[@"al.picUrl", @"album.picUrl",@"album.artist.img1v1Url",@"artists[0].img1v1Url"],
         @"artist" : @"ar[0].name"
     };
 }
 
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
     NSArray *artistArray = dic[@"ar"];
+  if (!artistArray) {
+    artistArray = dic[@"artists"];
+  }
     if ([artistArray isKindOfClass:[NSArray class]] && artistArray.count > 0) {
         self.artist = artistArray.firstObject[@"name"];
     } else {

@@ -22,7 +22,7 @@
 		4B59C8A72ECB473400F95301 /* VCHomePage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8A32ECB473400F95301 /* VCHomePage.mm */; };
 		4B59C8AF2ECB474F00F95301 /* VCSearchPage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8AD2ECB474F00F95301 /* VCSearchPage.mm */; };
 		4B59C8B02ECB474F00F95301 /* SearchView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8A92ECB474F00F95301 /* SearchView.mm */; };
-		4B59C8B12ECB474F00F95301 /* SearchModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8AB2ECB474F00F95301 /* SearchModel.mm */; };
+		4B59C8B12ECB474F00F95301 /* SpotifySearchModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8AB2ECB474F00F95301 /* SpotifySearchModel.mm */; };
 		4B59C8B92ECB477800F95301 /* MusicLibraryView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8B52ECB477800F95301 /* MusicLibraryView.mm */; };
 		4B59C8BA2ECB477800F95301 /* VCMusicLibrary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8B72ECB477800F95301 /* VCMusicLibrary.mm */; };
 		4B59C8BB2ECB477800F95301 /* MusicLibraryModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B59C8B32ECB477800F95301 /* MusicLibraryModel.mm */; };
@@ -44,6 +44,7 @@
 		4BCE5FF02F138C860098BE3F /* AlbumSongsTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE5FEF2F138C860098BE3F /* AlbumSongsTableViewCell.mm */; };
 		4BCE5FF22F2B5B570098BE3F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE5FF12F2B5B570098BE3F /* AVFoundation.framework */; };
 		4BCE5FF42F2B5B660098BE3F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE5FF32F2B5B660098BE3F /* CoreMedia.framework */; };
+		4BCE5FF72F2C3DF80098BE3F /* SearchResultCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE5FF62F2C3DF80098BE3F /* SearchResultCell.mm */; };
 		64D567B7521AA1779E2C2807 /* libPods-Spotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE7F0276DDDC18AC20A4DBB /* libPods-Spotify.a */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +75,8 @@
 		4B59C8A32ECB473400F95301 /* VCHomePage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VCHomePage.mm; sourceTree = "<group>"; };
 		4B59C8A82ECB474F00F95301 /* SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		4B59C8A92ECB474F00F95301 /* SearchView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchView.mm; sourceTree = "<group>"; };
-		4B59C8AA2ECB474F00F95301 /* SearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchModel.h; sourceTree = "<group>"; };
-		4B59C8AB2ECB474F00F95301 /* SearchModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchModel.mm; sourceTree = "<group>"; };
+		4B59C8AA2ECB474F00F95301 /* SpotifySearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpotifySearchModel.h; sourceTree = "<group>"; };
+		4B59C8AB2ECB474F00F95301 /* SpotifySearchModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SpotifySearchModel.mm; sourceTree = "<group>"; };
 		4B59C8AC2ECB474F00F95301 /* VCSearchPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCSearchPage.h; sourceTree = "<group>"; };
 		4B59C8AD2ECB474F00F95301 /* VCSearchPage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VCSearchPage.mm; sourceTree = "<group>"; };
 		4B59C8B22ECB477800F95301 /* MusicLibraryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicLibraryModel.h; sourceTree = "<group>"; };
@@ -119,6 +120,8 @@
 		4BCE5FEF2F138C860098BE3F /* AlbumSongsTableViewCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AlbumSongsTableViewCell.mm; sourceTree = "<group>"; };
 		4BCE5FF12F2B5B570098BE3F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4BCE5FF32F2B5B660098BE3F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4BCE5FF52F2C3DF80098BE3F /* SearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		4BCE5FF62F2C3DF80098BE3F /* SearchResultCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchResultCell.mm; sourceTree = "<group>"; };
 		633CF3CF95762EBC6463859A /* Pods-Spotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify.release.xcconfig"; path = "Target Support Files/Pods-Spotify/Pods-Spotify.release.xcconfig"; sourceTree = "<group>"; };
 		BBE7F0276DDDC18AC20A4DBB /* libPods-Spotify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Spotify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,8 +204,10 @@
 			children = (
 				4B59C8A82ECB474F00F95301 /* SearchView.h */,
 				4B59C8A92ECB474F00F95301 /* SearchView.mm */,
-				4B59C8AA2ECB474F00F95301 /* SearchModel.h */,
-				4B59C8AB2ECB474F00F95301 /* SearchModel.mm */,
+				4B59C8AA2ECB474F00F95301 /* SpotifySearchModel.h */,
+				4B59C8AB2ECB474F00F95301 /* SpotifySearchModel.mm */,
+				4BCE5FF52F2C3DF80098BE3F /* SearchResultCell.h */,
+				4BCE5FF62F2C3DF80098BE3F /* SearchResultCell.mm */,
 				4B59C8AC2ECB474F00F95301 /* VCSearchPage.h */,
 				4B59C8AD2ECB474F00F95301 /* VCSearchPage.mm */,
 			);
@@ -423,7 +428,8 @@
 				4B59C8B02ECB474F00F95301 /* SearchView.mm in Sources */,
 				4B59C8BF2ECB60BD00F95301 /* SpotifyAPIManager.mm in Sources */,
 				4B59C9CA2ED32F2900F95301 /* SpotifyRecommendAPIModel.mm in Sources */,
-				4B59C8B12ECB474F00F95301 /* SearchModel.mm in Sources */,
+				4B59C8B12ECB474F00F95301 /* SpotifySearchModel.mm in Sources */,
+				4BCE5FF72F2C3DF80098BE3F /* SearchResultCell.mm in Sources */,
 				4BCE5FE72EE843AA0098BE3F /* MusicPlayerDetailView.mm in Sources */,
 				4B59C88E2ECB471F00F95301 /* main.m in Sources */,
 				4BCE5FED2F1342EE0098BE3F /* AlbumDetailView.mm in Sources */,
